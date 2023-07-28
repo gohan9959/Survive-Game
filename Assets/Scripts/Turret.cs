@@ -25,12 +25,12 @@ public class Turret : MonoBehaviour
                 lookDirection.y = GameObject.Find("Player").transform.position.y;
                 transform.LookAt(lookDirection);
             }
-            if (Input.GetMouseButton((int)Enumerations.BulletType.Light) && gameManager.GetBulletCount(Enumerations.BulletType.Light) > 0)
+            if (Input.GetMouseButtonDown((int)Enumerations.BulletType.Light) && gameManager.GetBulletCount(Enumerations.BulletType.Light) > 0)
             {
                 Instantiate(bullets[(int)Enumerations.BulletType.Light], transform.position, transform.rotation);
                 gameManager.UpdateBulletCount(-1, Enumerations.BulletType.Light);
             }
-            if (Input.GetMouseButton((int)Enumerations.BulletType.Dark) && gameManager.GetBulletCount(Enumerations.BulletType.Dark) > 0)
+            if (Input.GetMouseButtonDown((int)Enumerations.BulletType.Dark) && gameManager.GetBulletCount(Enumerations.BulletType.Dark) > 0)
             {
                 Instantiate(bullets[(int)Enumerations.BulletType.Dark], transform.position, transform.rotation);
                 gameManager.UpdateBulletCount(-1, Enumerations.BulletType.Dark);

@@ -32,11 +32,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GameObject.Find("Title Screen").SetActive(false);
-        isGameActive = true;
         uIHandler.UpdateScoreUI(score);
         uIHandler.UpdateLivesUI(lives);
         uIHandler.UpdateBulletsUI(lightBulletCount, Enumerations.BulletType.Light);
         uIHandler.UpdateBulletsUI(darkBulletCount, Enumerations.BulletType.Dark);
+        StartCoroutine(SetGameActive());
     }
 
     public void GameOver()
@@ -96,5 +96,12 @@ public class GameManager : MonoBehaviour
     public int GetImmunityTimer()
     {
         return immunityTimer;
+    }
+
+    IEnumerator SetGameActive()
+    {
+        yield return new WaitForSeconds(1);
+        isGameActive = true;
+
     }
 }
